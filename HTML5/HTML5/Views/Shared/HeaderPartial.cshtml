@@ -1,0 +1,50 @@
+﻿@{
+    var xml = System.Xml.Linq.XDocument.Load(HttpContext.Current.Server.MapPath("~/App_Data/Modules.xml"));
+}
+
+<menu>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="@Url.Content("~/")">HTML5 + CSS3</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@(xml.Root.Attribute("Name") != null ? xml.Root.Attribute("Name").Value : "[missing Name attribute]") <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                @{
+                                    foreach (var xe in Helper.SortByAttribute(xml.Root.Elements(), "Name"))
+                                    {
+                                        var name = xe.Attribute("Name").Value;
+                                        var url = xe.Attribute("Url").Value;
+                                        if (xe.Name == "item")
+                                        {
+                                    <li><a href="@Url.Content(url)">@name</a></li>
+                                        }
+                                        else if (xe.Name == "list")
+                                        {
+                                    <li class="dropdown-submenu">
+                                        <a href="@Url.Content(url)">@xe.Attribute("Name").Value</a>
+                                        <ul class="dropdown-menu">
+                                            @foreach (var cXe in Helper.SortByAttribute(xe.Descendants("item"), "Name"))
+                                            {
+                                                var cName = cXe.Attribute("Name") != null ? cXe.Attribute("Name").Value : "[missing Name attribute]";
+                                                var cUrl = cXe.Attribute("Url").Value;
+                                                <li><a href="@Url.Content(cUrl)">@cName</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <span id="winuser" class="brand small right">@User.Identity.Name</span>
+            </div>
+        </div>
+    </div>
+</menu>
+
+

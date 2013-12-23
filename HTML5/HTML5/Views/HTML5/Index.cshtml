@@ -1,0 +1,113 @@
+﻿<link href="~/Content/Modules/Home.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Home";
+    ViewBag.Description = "Initial launch page. Use the Modules dropdown to navigate to code examples.";
+    ViewBag.WikiPage = "home";
+
+    //http://www.w3schools.com/tags/default.asp
+    /* special case handles root node to build modules list like children list */
+    ViewBag.Id = "_root";
+
+    var l1 = Helper.GetLink("HTML ref", "http://www.w3schools.com/tags/default.asp");
+    var l2 = Helper.GetLink("HTML5 tutorial", "http://www.w3schools.com/html/html5_intro.asp");
+    var l3 = Helper.GetLink("CSS ref", "http://www.w3schools.com/cssref/default.asp");
+    ViewBag.Links = Helper.Links(l1, l2, l3);
+}
+<section class="partial home">
+    <div class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tabStart" data-toggle="tab">Getting Started</a></li>
+            <li><a href="#tabXml" data-toggle="tab">Modules.xml</a></li>
+            <li><a href="#tabView" data-toggle="tab">View</a></li>
+            <li><a href="#tabController" data-toggle="tab">Controller</a></li>
+            <li><a href="#tabModel" data-toggle="tab">Model</a></li>
+            <li><a href="#tabCustom" data-toggle="tab">Custom CSS/JS</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tabStart">
+                <pre>
+<strong>There are 2 ways to create new content:</strong>
+    <strong>single module</strong>
+        - with the sigle module approach you just need to create a view and controller, and add the item to the Modules.xml
+        - the default Index action is the only action
+
+    <strong>module group</strong>
+        - with the module group you can create a main overview page using the Index action and have as many actions as you want
+        - an example is using canvas. the group is canvas related, but there are many canvas related pages
+        - this requires the Index page to be the parent, and each additional action to have a View that is a child
+        - adding to Modules.xml you would have a list and as many items as actions
+
+<strong>ViewBag Properties:</strong>
+    <strong>Required</strong>
+    - Title:string:: header for page
+    - Description:string:: general description of the page
+
+    <strong>Conditional</strong>
+    - Id:string:: If this is an overview page include the Id from the Modules.xml to provide navigation to child pages (actions)
+    - HasParent:bool:: If this is a child page (action) provide HasParent = true to give a link back to the overview page
+    Note: if this is a single module approach, leave off both properties
+
+    <strong>Optional:</strong> <em>leaving off these properties will prevent from showing</em>
+    - WikiPage:string:: html5 is already prepended. add module:action to link to a wiki page. 
+        ex. "canvas:lines" would link to the wiki page /doku.php?id=html5:canvas:lines
+    - Links:HTML5.App_Code.Link:: use ViewBag.Links = Helper.GetLink(name, url); for single links
+    - Links:HTML5.App_Code.Link[]:: use l1 = Helper.GetLink(...); l2 = Helper.GetLink(...); 
+                                    ViewBag.Links = Helper.Links(l1, l2, ...); for multiple links
+</pre>
+            </div>
+            <div class="tab-pane" id="tabXml">
+                <pre>
+There are two valid elements: list and item
+    - list: wrapper element &lt;list&gt;&lt;/list&gt; that can include item and list elements
+        • valid attributes include Id, Name, and Url
+            - Id: required, uniquely defines the list and used in the overview page defined by ViewBag.Id = [id];
+            - Name: required, gives visible name of list for use in the navigation elements on the site
+            - Url: required, gives the relative location of the page
+    - item: single element &lt;item /&gt;
+        • valid attributes include Name, Url, User
+            - Name: [same as list]
+            - Url: [same as list]
+            - User: optional, page creator based on login name ex. zreynolds
+</pre>
+            </div>
+            <div class="tab-pane" id="tabView">
+                <pre>
+When creating a new module, simply add a new folder under the 'Views' folder. Once created, right-click on the folder: Add > View...
+
+If using the single module approach, simply name the View 'Index'. If you are using the module group, make sure to create a view for each
+action in the controller.
+</pre>
+            </div>
+            <div class="tab-pane" id="tabController">
+                <pre>
+Right-click on the 'Controllers' folder: Add > Controller...
+
+Name the controller based on the folder created for the View with 'Controller' prepended.
+ex. Canvas folder under Views would create a controller called CanvasController
+
+the Index action is already created for you. Go ahead and add an override before 'ActionResult Index' if extending HTML5Controller (recommended)
+</pre>
+            </div>
+            <div class="tab-pane" id="tabModel">
+                <pre>
+work in progress...
+</pre>
+            </div>
+            <div class="tab-pane" id="tabCustom">
+                <pre>
+If there is to be extensive CSS changes for the module / action go ahead and a new stylesheet under Content > Modules named appropriately.
+    - inline CSS is also perfectly fine, but remember to follow the namespacing approach to keep the changes localized to your view and action
+
+Follow the namespacing approach when making CSS changes:
+    - in your cshtml encapsulate your view with section tags giving a class="partial {moduleName}"
+    - in your CSS make changes by prepending with .partial.{moduleName}
+        ex. .partial.Canvas p { background-color: red; } gives a background to all paragraph elements when dealing with the canvas module
+
+As far as for JavaScript, the same care can be taken if extensive enough, though with MVC you can incorporate view data directly.
+    - script tags are fine to go directly into the page, though you can reference then from Scripts > Modules as necessary
+</pre>
+            </div>
+        </div>
+    </div>
+</section>

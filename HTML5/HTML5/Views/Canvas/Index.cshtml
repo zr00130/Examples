@@ -1,0 +1,17 @@
+﻿<link href="~/Content/Modules/canvas.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Canvas";
+    ViewBag.Description = "This is an overview page for the HTML5 Canvas tag.";
+
+    /* for use when there is a subset of pages and this is the overview page */
+    ViewBag.Id = "Canvas";
+
+    var l1 = Helper.GetLink("w3schools", "http://www.w3schools.com/tags/tag_canvas.asp");
+    var l2 = Helper.GetLink("canvas tutorials", "http://www.html5canvastutorials.com/");
+    ViewBag.Links = Helper.Links(l1, l2);
+    
+}
+<section class="partial canvas">
+</section>
+

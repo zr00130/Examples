@@ -1,0 +1,99 @@
+﻿<link href="~/Content/Modules/dragdrop.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Drag 'n' Drop - Windows Explorer";
+    ViewBag.Description = "Drag and drop an Excel document to the input box. Accepts xls,xlsx,xlsm formats";
+    ViewBag.HasParent = true;
+    var l1 = Helper.GetLink("drop files", "http://www.html5rocks.com/en/tutorials/file/dndfiles/");
+    var l2 = Helper.GetLink("upload file", "http://stackoverflow.com/questions/5193842/file-upload-asp-net-mvc-3-0");
+    ViewBag.Links = Helper.Links(l1, l2);
+}
+
+<section class="partial dragdrop movecontent">
+    <div id="userInput">
+        <span>checkbox1: </span>
+        <input id="cb1" type="checkbox" name="checkbox1" /><br />
+        <span>checkbox2: </span>
+        <input id="cb2" type="checkbox" name="checkbox2" /><br />
+        <span>input1: </span>
+        <input id="input1" type="text" name="input1" /><br />
+        <span>select1: </span>
+        <select id="sel1" name="select1">
+            <option value="opt1">One</option>
+            <option value="opt2">Two</option>
+            <option value="opt3">Three</option>
+        </select>
+    </div>
+    <br />
+    <span><strong>onsubmit sends file and serialized JSON of above on submit:</strong></span>
+    @using (Html.BeginForm("ExplorerDrop", "DragDrop", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "storeSettings();" }))
+    {
+        <span>Upload Excel: </span>
+        <input type="file" name="file" onchange="validateFile(this);" />
+        <input type="hidden" id="settings" name="settings" /><br />
+        <input type="button" value="Submit" onclick="ajaxPost(this)" />
+    }
+    @{
+        if (Model is string)
+        {
+        <span><em>@Model</em></span>
+        }
+    }
+</section>
+
+<script type="text/javascript">
+    function storeSettings() {
+        //build up object relationship for setup (outside of the form submit)
+        var settings = {};
+
+        var $cb1 = $('#cb1');
+        var $cb2 = $('#cb2');
+        var $input1 = $('#input1');
+        var $sel1 = $('#sel1');
+
+        settings[$cb1.prop('name')] = $cb1.is(':checked');
+        settings[$cb2.prop('name')] = $cb2.is(':checked');
+        settings[$input1.prop('name')] = $input1.val();
+        settings[$sel1.prop('name')] = $sel1.val();
+
+        var stringify = JSON.stringify(settings);
+        $('#settings').val(stringify);
+    }
+
+    function validateFile(sender) {
+        var validExts = new Array(".xlsx", ".xls", ".xlsm");
+        var fileExt = sender.value;
+        fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+        if (fileExt !== '' && validExts.indexOf(fileExt) < 0) {
+            sender.value = '';
+            alert("Invalid file selected, valid files are of " +
+                     validExts.toString() + " types.");
+            return false;
+        }
+        else return true;
+    }
+
+    function ajaxPost(btn) {
+        var $form = $(btn).parents('form');
+
+        storeSettings();
+        var data = new FormData($form[0]);
+
+        $.ajax({
+            type: 'POST',
+            contentType: false,
+            cache: false,
+            processData: false,
+            url: '@Url.Action("FormSubmit")',
+            data: data,
+            success: function (data) {
+                //returned data
+                alert(data);
+            },
+            error: function (e) {
+                alert('error!');
+            }
+        });
+    }
+</script>
+
+<script src="~/Scripts/Modules/dragdrop.js"></script>

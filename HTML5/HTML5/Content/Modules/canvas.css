@@ -1,0 +1,24 @@
+﻿/* applies to all partial canvas pages */
+.partial.canvas canvas
+{
+    width: 100%;
+    height: 500px;
+    border: 1px solid hsl(0, 0%, 75%);
+}
+
+/* applies to only the lines action in the partial canvas page */
+.partial.canvas.lines canvas
+{
+}
+
+.partial.canvas.lines > div > input[type='text']
+{
+    margin-top: 5px;
+    height: 13px;
+    width: 33px;
+}
+
+    .partial.canvas.lines > div > input[type='text'] + span
+    {
+        font-size: 75%;
+    }

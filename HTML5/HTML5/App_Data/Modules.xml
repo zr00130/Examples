@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<list Id="_root" Name="Modules" Url="~/">
+  <item Name="Test Page" Url="~/TestPage" />
+  <list Id="Canvas" Name="Canvas" Url="~/Canvas">
+    <item Name="Line Drawing" Url="~/Canvas/Lines" User="zreynolds" />
+  </list>
+  <list Id="DragDrop" Name="Drag 'n' Drop" Url="~/DragDrop">
+    <item Name="Move Content" Url="~/DragDrop/MoveContent" User="zreynolds" />
+    <item Name="Drop from Explorer" Url="~/DragDrop/ExplorerDrop" User="zreynolds" />
+  </list>
+  <item Name="Sandbox" Url="~/Sandbox" User="zreynolds" />
+</list>

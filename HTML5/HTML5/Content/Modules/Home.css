@@ -1,0 +1,11 @@
+﻿.partial.home > .tabbable
+{
+    margin-bottom: 50px;
+}
+
+.partial.home .tab-content
+{
+    overflow: auto;
+    word-break:keep-all;
+    word-wrap:normal;
+}

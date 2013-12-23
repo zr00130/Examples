@@ -1,0 +1,26 @@
+﻿@functions{
+    /// <summary>
+    /// Takes the list of elements under a node and sorts based on the supplied attributes value
+    /// </summary>
+    /// <returns></returns>
+    public static IEnumerable<System.Xml.Linq.XElement> SortByAttribute(IEnumerable<System.Xml.Linq.XElement> elements, string attribute)
+    {
+        return elements.OrderBy(e => e.Attribute(attribute) != null ? e.Attribute(attribute).Value : string.Empty);
+    }
+
+    /// <summary>
+    /// Just abstract away some of the code to reduce copy pasta
+    /// </summary>
+    public static HTML5.App_Code.Link GetLink(string name, string url)
+    {
+        return new HTML5.App_Code.Link { Name = name, Url = url };
+    }
+
+    /// <summary>
+    /// cheap way to allow chaining of links to reduce code for user
+    /// </summary>
+    public static HTML5.App_Code.Link[] Links(params HTML5.App_Code.Link[] values)
+    {
+        return values;
+    }
+}

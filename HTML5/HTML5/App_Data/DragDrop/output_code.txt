@@ -1,0 +1,273 @@
+        Dim dropOffset As Integer
+        dropOffset = 100
+        For i = 1 To ttlLayers
+            ' clear contents for all possible layers
+            wsLossDist.Range("Sort" & i).ClearContents
+            wsLossDist.Range("DropAttritional" & i).Range("A1:A" & (dropOffset + 500)).ClearContents
+            wsLossDist.Range("DropCAT" & i).Range("A1:A" & (dropOffset + 500)).ClearContents
+            wsLossDist.Range("DropTerror" & i).Range("A1:A" & (dropOffset + 500)).ClearContents
+            
+            If i <= numLayers Then
+                ' only apply sorting for the number of layers used
+                wsLossDist.Range("DropLoss1").Resize(501, 1) = Loss1
+            wsLossDist.Range("Sort1").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess, _
+                OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropAttritional1").Resize(501, 1) = ALoss1
+            
+            wsLossDist.Range("SortALoss1").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess, _
+                OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropCAT1").Resize(501, 1) = CLoss1
+            
+            wsLossDist.Range("SortCLoss1").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess, _
+                OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                DataOption1:=xlSortNormal
+                    
+            wsLossDist.Range("DropTerror1").Resize(501, 1) = TLoss1
+            
+            wsLossDist.Range("SortTLoss1").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess, _
+                OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                DataOption1:=xlSortNormal
+            End If
+        Next i
+        
+        ''''''''
+        '''''''
+        ''''''''
+        wsLossDist.Range("Sort1").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("Sort2").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("Sort3").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("Sort4").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("Sort5").Select
+        Selection.ClearContents
+         
+        wsLossDist.Range("DropAttritional1").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropCAT1").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropTerror1").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropAttritional2").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropCAT2").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropTerror2").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropAttritional3").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropCAT3").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropTerror3").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropAttritional4").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropCAT4").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropTerror4").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropAttritional5").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropCAT5").Range("A1:A600").Select
+        Selection.ClearContents
+        
+        wsLossDist.Range("DropTerror5").Range("A1:A600").Select
+        Selection.ClearContents
+
+        If numLayers >= 1 Then
+            wsLossDist.Range("DropLoss1").Resize(501, 1) = Loss1
+            wsLossDist.Range("Sort1").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess, _
+                OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropAttritional1").Resize(501, 1) = ALoss1
+            
+            wsLossDist.Range("SortALoss1").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess, _
+                OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropCAT1").Resize(501, 1) = CLoss1
+            
+            wsLossDist.Range("SortCLoss1").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess, _
+                OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                DataOption1:=xlSortNormal
+                    
+            wsLossDist.Range("DropTerror1").Resize(501, 1) = TLoss1
+            
+            wsLossDist.Range("SortTLoss1").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess, _
+                OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                DataOption1:=xlSortNormal
+        End If
+
+        If numLayers >= 2 Then
+            wsLossDist.Range("DropLoss2").Resize(501, 1) = Loss2
+            wsLossDist.Range("Sort2").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropAttritional2").Resize(501, 1) = ALoss2
+            
+            wsLossDist.Range("SortALoss2").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropCAT2").Resize(501, 1) = CLoss2
+            
+            wsLossDist.Range("SortCLoss2").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+                    
+            wsLossDist.Range("DropTerror2").Resize(501, 1) = TLoss2
+            
+            wsLossDist.Range("SortTLoss2").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+        End If
+
+
+        If numLayers >= 3 Then
+            wsLossDist.Range("DropLoss3").Resize(501, 1) = Loss3
+            wsLossDist.Range("Sort3").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropAttritional3").Resize(501, 1) = ALoss3
+            
+            
+            wsLossDist.Range("SortALoss3").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropCAT3").Resize(501, 1) = CLoss3
+            
+            wsLossDist.Range("SortCLoss3").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+                    
+            wsLossDist.Range("DropTerror3").Resize(501, 1) = TLoss3
+            
+            wsLossDist.Range("SortTLoss3").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+        End If
+
+        If numLayers >= 4 Then
+            wsLossDist.Range("DropLoss4").Resize(501, 1) = Loss4
+            wsLossDist.Range("Sort4").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropAttritional4").Resize(501, 1) = ALoss4
+            
+            wsLossDist.Range("SortALoss4").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropCAT4").Resize(501, 1) = CLoss4
+            
+            wsLossDist.Range("SortCLoss4").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+                    
+            wsLossDist.Range("DropTerror4").Resize(501, 1) = TLoss4
+            
+            wsLossDist.Range("SortTLoss4").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+        End If
+
+        If numLayers >= 5 Then
+            wsLossDist.Range("DropLoss5").Resize(501, 1) = Loss5
+            wsLossDist.Range("Sort5").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropAttritional5").Resize(501, 1) = ALoss5
+            
+            wsLossDist.Range("SortALoss5").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+            
+            wsLossDist.Range("DropCAT5").Resize(501, 1) = CLoss5
+            
+            wsLossDist.Range("SortCLoss1").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+                    
+            wsLossDist.Range("DropTerror5").Resize(501, 1) = TLoss5
+            
+            wsLossDist.Range("SortTLoss5").Select
+            
+            Selection.Sort Key1:=ActiveCell.offset(0, 0).Range("A1"), Order1:=xlAscending, Header:=xlGuess _
+                    , OrderCustom:=1, MatchCase:=False, Orientation:=xlTopToBottom, _
+                    DataOption1:=xlSortNormal
+        End If

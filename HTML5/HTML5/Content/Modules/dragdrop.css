@@ -1,0 +1,15 @@
+﻿div.row hgroup h2
+{
+    display: inline-block;
+}
+
+div.row hgroup .droppable.dropShow
+{
+    border-color: black;
+}
+
+    div.row hgroup .droppable.dropShow.over
+    {
+        border-color: hsl(200, 100%, 38%);
+        color: hsl(200, 100%, 38%);
+    }

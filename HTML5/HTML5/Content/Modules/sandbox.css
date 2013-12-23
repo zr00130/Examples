@@ -1,0 +1,53 @@
+﻿.partial.sandbox
+{
+    position: relative;
+}
+
+#examplesContainer > div.btn-group
+{
+    margin-bottom: 10px;
+}
+
+#inputContainer
+{
+    padding: 0;
+    margin: 0;
+}
+
+    #inputContainer code
+    {
+        width: 98%;
+        height: 325px;
+        padding: 0;
+        white-space: pre;
+        overflow: auto;
+        background: #fff;
+        border: 1px solid hsl(210, 4%, 91%);
+    }
+
+    #inputContainer > div
+    {
+        display: inline-block;
+    }
+
+    #inputContainer span.title-language
+    {
+        font-weight: bold;
+    }
+
+#cssInput
+{
+    width: 40%;
+}
+
+#htmlInput
+{
+    width: 60%;
+    position: absolute;
+}
+
+#output
+{
+    height: 300px;
+    border: 1px dashed hsl(0, 0%, 50%);
+}
