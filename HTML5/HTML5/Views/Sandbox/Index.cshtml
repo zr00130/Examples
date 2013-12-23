@@ -1,0 +1,38 @@
+﻿<script src="~/Scripts/Modules/sandbox.js"></script>
+<link href="~/Content/Modules/sandbox.css" rel="stylesheet" />
+<link href="~/Content/highlight-vs.css" rel="stylesheet" />
+<script src="~/Scripts/highlight.js"></script>
+
+@{
+    ViewBag.Title = "Sandbox";
+    ViewBag.Description = "Live HTML/5 and CSS/3 demo. As you type, the results are shown. Use &lt;shift&gt;Enter to start a new line.";
+
+    var l1 = Helper.GetLink("CSS3", "http://www.w3schools.com/css3/");
+    var l2 = Helper.GetLink("HTML5 tutorials", "http://www.html5rocks.com/en/tutorials/");
+    var l3 = Helper.GetLink("caret position", "http://stackoverflow.com/questions/4811822/get-a-ranges-start-and-end-offsets-relative-to-its-parent-container/4812022#4812022");
+    var l4 = Helper.GetLink("highlight.js", "https://github.com/isagalaev/highlight.js");
+    var l5 = Helper.GetLink("IndexedDB", "http://www.w3.org/TR/IndexedDB/");
+    ViewBag.Links = Helper.Links(l1, l2, l3, l4, l5);
+}
+
+<section class="partial sandbox">
+    <div id="examplesContainer">
+        <select id="menuExamples"></select>
+        <div class="btn-group">
+            <a class="btn btn-small" href="javascript:updateExample();">Save</a>
+            <a class="btn btn-small" href="javascript:newExample();">Save As...</a>
+            <a class="btn btn-small" href="javascript:deleteExample();">Delete</a>
+        </div>
+    </div>
+    <div id="inputContainer">
+        <div id="cssInput">
+            <span class="span2 title-language">CSS</span>
+            <pre><code contenteditable="true" spellcheck="false" oninput="cssValueChanged($(this))"></code></pre>
+        </div>
+        <div id="htmlInput">
+            <span class="span2 title-language">HTML/JS</span>
+            <pre><code contenteditable="true" spellcheck="false" oninput="htmlValueChanged($(this))"></code></pre>
+        </div>
+    </div>
+    <div id="output"></div>
+</section>

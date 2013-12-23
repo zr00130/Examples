@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTML5", "HTML5\HTML5.csproj", "{FE27CC82-A026-49C5-852C-9A6C6C7D0EA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTML5.Tests", "HTML5.Tests\HTML5.Tests.csproj", "{6B815379-98AE-4608-AA52-07A9500886EE}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs1:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HTML5.Tests\\HTML5.Tests.csproj
+		SccProjectName1 = HTML5.Tests
+		SccLocalPath1 = HTML5.Tests
+		SccProjectUniqueName2 = HTML5\\HTML5.csproj
+		SccProjectName2 = HTML5
+		SccLocalPath2 = HTML5
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE27CC82-A026-49C5-852C-9A6C6C7D0EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE27CC82-A026-49C5-852C-9A6C6C7D0EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE27CC82-A026-49C5-852C-9A6C6C7D0EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE27CC82-A026-49C5-852C-9A6C6C7D0EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B815379-98AE-4608-AA52-07A9500886EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B815379-98AE-4608-AA52-07A9500886EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B815379-98AE-4608-AA52-07A9500886EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B815379-98AE-4608-AA52-07A9500886EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

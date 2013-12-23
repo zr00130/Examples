@@ -1,0 +1,22 @@
+﻿<link href="~/Content/Modules/canvas.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Canvas - Line Drawing";
+    ViewBag.Description = "This uses the Canvas element and presents very basic drawing functionality.";
+    ViewBag.HasParent = true;
+
+    ViewBag.Links = Helper.GetLink("mousescroll", "http://brandonaaron.net/code/mousewheel/demos");
+}
+
+<section class="partial canvas lines">
+    <div>
+        <span>Number of Lines:</span>
+        <input id="numLines" class="triggerChanges" type="text" required="required" maxlength="4" title="Number of Lines" pattern="\d+"  />
+        <span>(try to scroll!)</span>
+    </div>
+    <canvas id="myCanvas">
+        @Html.Partial("NotSupportedPartial", "canvas")
+    </canvas>
+</section>
+
+<script src="~/Scripts/Modules/canvas.js"></script>

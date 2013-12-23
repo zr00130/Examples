@@ -1,0 +1,125 @@
+﻿[draggable]
+{
+    /* Prevent the text contents of draggable elements from being selectable. */
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+    /* visually differentiate movable elements */
+    cursor: move;
+}
+
+div.row hgroup h2.droppable
+{
+    border: 3px dashed transparent;
+    padding: 3px;
+}
+
+.hero-unit
+{
+    padding: 12px 15px;
+    font-size: 12pt;
+    border: 1px solid hsl(0, 0%, 85%);
+}
+
+.brand.small
+{
+    font-size: 80%;
+}
+
+.brand.right
+{
+    float: right;
+}
+
+body
+{
+    background-color: hsl(0, 0%, 95%);
+    /* for bootstrap header and footer sections */
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+    body > div.container
+    {
+        height: 100%;
+    }
+
+.partial.notsupported a
+{
+    padding-right: 5px;
+}
+
+.partial.children .thumbnails
+{
+    display: block;
+    text-align: center;
+}
+
+    .partial.children .thumbnails > li
+    {
+        display: inline-block;
+    }
+
+.partial.children .thumbnail
+{
+    width: 175px !important;
+    height: 125px !important;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    text-decoration: none;
+    color: hsl(0, 0%, 60%);
+    border-color: hsl(0, 0%, 80%);
+    background-color: hsl(0, 0%, 93%);
+    font-size: 13pt;
+    position: relative;
+    z-index: 2;
+}
+
+    .partial.children .thumbnail:hover
+    {
+        color: hsl(200, 100%, 38%);
+        border-color: hsl(200, 100%, 38%);
+    }
+
+    .partial.children .thumbnail.multiple
+    {
+        -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+        .partial.children .thumbnail.multiple:hover
+        {
+            -webkit-box-shadow: 1px 1px 3px hsl(200, 100%, 25%);
+            box-shadow: 1px 1px 3px hsl(200, 100%, 25%);
+        }
+
+    .partial.children .thumbnail div
+    {
+        position: absolute;
+        bottom: 0;
+        font-size: 65%;
+    }
+
+        .partial.children .thumbnail div.left
+        {
+            left: 0;
+            padding-left: 3px;
+        }
+
+        .partial.children .thumbnail div.right
+        {
+            right: 0;
+            padding-right: 3px;
+        }
+
+
+footer .container
+{
+    text-align: right;
+}

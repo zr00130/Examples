@@ -1,0 +1,61 @@
+﻿@{
+    string id = (string)Model;
+    var xml = System.Xml.Linq.XDocument.Load(HttpContext.Current.Server.MapPath("~/App_Data/Modules.xml"));
+
+    System.Xml.Linq.XElement list;
+    if (id == "_root")
+    {
+        list = xml.Root;
+    }
+    else
+    {
+        list = xml.Root.Elements("list").Single(e => e.Attribute("Id").Value == id);
+    }
+}
+
+<section class="partial children">
+    <h4>.nav</h4>
+    <ul class="thumbnails">
+        @{
+            foreach (var xe in Helper.SortByAttribute(list.Elements(), "Name"))
+            {
+                var name = xe.Attribute("Name").Value;
+                var url = xe.Attribute("Url").Value;
+            <li class="span2">
+                @{
+                var multiple = (xe.Name == "list") ? "multiple" : string.Empty;
+                }
+                <a href="@Url.Content(url)" class="thumbnail @multiple">
+                    <p>@name</p>
+                    @{
+                if (xe.Name == "list")
+                {
+                    var user = string.Empty;
+                    var children = xe.Elements("item");
+                    int count = children.Count();
+                    var distinct = children.Select(e => e.Attribute("User") != null ? e.Attribute("User").Value : string.Empty).Distinct();
+                    if (distinct.Count() > 1)
+                    {
+                        user = "*";
+                    }
+                    else
+                    {
+                        user = distinct.First();
+                    }
+                    
+                        <div class="left">@user</div><div class="right">@count</div>
+                }
+                else if (xe.Name == "item")
+                {
+                    var user = string.Empty;
+                    user = xe.Attribute("User") != null ? xe.Attribute("User").Value : string.Empty;
+                    //single item just give user
+                        <div class="left">@user</div>   
+                }
+                    }
+                </a>
+            </li>
+            }
+        }
+    </ul>
+</section>
